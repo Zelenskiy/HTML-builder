@@ -3,11 +3,18 @@ const path = require('path');
 
 const filePath = path.join(__dirname, './text.txt');
 
-fs.promises
-  .readFile(filePath, 'utf8')
-  .then((data) => {
-    console.log(data);
-  })
-  .catch((err) => {
-    console.error(err);
-  });
+const stream = new fs.ReadStream(filePath, { encoding: 'utf8' });
+
+let data = '';
+
+stream.on('data', (chunk) => {
+  data += chunk;
+});
+
+stream.on('end', () => {
+  console.log(data);
+});
+
+stream.on('error', (err) => {
+  console.error(err);
+});
