@@ -8,7 +8,7 @@ const farewellMessage = 'Thank for use program. Good by!';
 
 const rl = readline.createInterface({
   input: process.stdin,
-  output: process.stdout
+  output: process.stdout,
 });
 
 async function askForInput() {

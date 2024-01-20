@@ -19,5 +19,6 @@ async function readFolderContent(folderPath) {
     console.error(`Помилка при читанні папки ${folderPath}:`, err);
   }
 }
+
 const folderPath = path.join(__dirname, './secret-folder');
 readFolderContent(folderPath);
